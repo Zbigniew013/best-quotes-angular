@@ -10,15 +10,14 @@ import { Quotation } from './models/quotations';
 export class AppComponent {
   showForm = false;
   quotes: Quotation[] = QUOTES;
+  quotation: Quotation = { author: '', sentence: '', votes: 0 };
 
   onSwitchForm(): void {
     this.showForm = !this.showForm;
   }
-}
 
-// export const QUOTES = [
-//   {
-//     author: 'Jonathan Carroll',
-//     quotation: 'To, że milczę, nie znaczy, że nie mam nic do powiedzenia.',
-//     votes: -4,
-//   },
+  addQuotation() {
+    this.quotes.unshift(this.quotation);
+    this.quotation = { author: '', sentence: '', votes: 0 };
+  }
+}
